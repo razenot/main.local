@@ -11,7 +11,7 @@ echo $content;
 
 <script>
     var save = document.querySelector(".download-torrent");
-    save.addEventListener('click', e => {
+    save.addEventListener('click', function(e) {
         e.preventDefault()
         let data = {
             torrent: $save.href
