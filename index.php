@@ -18,7 +18,7 @@ echo $content;
         save.addEventListener('click', e => {
             e.preventDefault()
             let data = {
-                torrent: $save.href
+                torrent: save.href
             };
 
             fetch('/download.php', {
