@@ -11,29 +11,31 @@ echo $content;
 
 <script>
     var save = document.querySelector(".download-torrent");
-    save.addEventListener('click', function(e) {
-        e.preventDefault()
-        let data = {
-            torrent: $save.href
-        };
+    if(save !== null) {
+        save.addEventListener('click', e => {
+            e.preventDefault()
+            let data = {
+                torrent: $save.href
+            };
 
-        fetch('/download.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+            fetch('/download.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if(result.status == 'success') {
+                    alert('Торрент скачен');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+            });
         })
-        .then(response => response.json())
-        .then(result => {
-            if(result.status == 'success') {
-                alert('Торрент скачен');
-            }
-        })
-        .catch(error => {
-            console.error('Ошибка:', error);
-        });
-    })
+    }
     
     document.addEventListener('click', e => {
         e.preventDefault()
