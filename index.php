@@ -6,6 +6,9 @@ if(strpos($content, 'Windows-1251'))
     $content = iconv("windows-1251", "utf-8",$content);
 $content = str_replace('src="/', 'src="https://new.torrentino.org/', $content);
 $content = str_replace('href="/', 'href="https://new.torrentino.org/', $content);
+echo "<pre>";
+print_r($_SERVER);
+echo "</pre>";
 echo $content;
 ?>
 
