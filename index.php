@@ -15,7 +15,6 @@ echo $content;
 <script>
     var save = document.querySelector(".download-torrent");
     if(save !== null) {
-        wget
         save.addEventListener('click', e => {
             e.preventDefault()
             let data = {
