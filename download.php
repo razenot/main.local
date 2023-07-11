@@ -5,6 +5,7 @@ if (isset($data['torrent'])) {
     try {
         $log = file_put_contents('myserv'.time().'.torrent', file_get_contents($torrent));
         $response = array('status' => 'success', 'data' => $log);
+        print_r(error_get_last());
         echo json_encode($response);
     } catch (Exception $e) {
         echo 'Выброшено исключение: ',  $e->getMessage(), "\n";
