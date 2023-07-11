@@ -33,6 +33,7 @@ echo $content;
                 if(result.status == 'success') {
                     alert('Торрент скачен');
                 }
+                console.log(result);
             })
             .catch(error => {
                 console.error('Ошибка:', error);
